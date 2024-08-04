@@ -94,7 +94,7 @@ public class RNPushNotification extends ReactContextBaseJavaModule implements Ac
 
                 mJsDelivery.sendEvent("remoteNotificationsRegistered", params);
             }
-        }, intentFilter);
+        }, intentFilter, Context.RECEIVER_NOT_EXPORTED);
     }
 
     private void registerNotificationsReceiveNotificationActions(ReadableArray actions) {
@@ -117,7 +117,7 @@ public class RNPushNotification extends ReactContextBaseJavaModule implements Ac
                 int notificationID = Integer.parseInt(bundle.getString("id"));
                 manager.cancel(notificationID);
             }
-        }, intentFilter);
+        }, intentFilter, Context.RECEIVER_NOT_EXPORTED);
     }
 
     @ReactMethod
